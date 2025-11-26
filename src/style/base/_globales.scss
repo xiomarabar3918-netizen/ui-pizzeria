@@ -1,0 +1,140 @@
+@use 'variables' as v; 
+@use 'mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+:root{
+    --header-height: 128px; /* default mobile header height */
+    --footer-height: 64px;  /* default footer height */
+}
+
+main{
+    padding: 0.5rem 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    /* make main the scrollable area; account for fixed header/footer */
+    max-height: calc(100vh - var(--header-height) - var(--footer-height));
+    overflow-y: auto;
+    @include m.tableta{
+        padding: 2rem 10rem;
+        /* larger screens likely have smaller header/footer */
+        max-height: calc(100vh - 64px - 64px);
+    }
+}
+
+body {
+    background-color: v.$grisClaro;
+    font-family: v.$fuentePrincipal;
+    font-size: 1.6rem;
+    padding-top: 140px;
+    @include m.tableta{
+        padding-top: 64px;
+        Padding-bottom: 64px;
+    }
+}
+
+p {
+    font-size: 2rem;
+}
+[class$="contenedor"],
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+ul {
+    padding:0;
+    list-style: none;
+    margin: 0;
+}
+.optionUser{
+    text-transform: capitalize;
+}
+.seccion {
+    padding: 8rem 0;
+}
+
+.contenedorFlex{
+    display: flex;
+    align-items: center;
+    @include m.tableta {
+        justify-content: center;
+    }
+}
+
+.containerFormsUser{
+    background: v.$primario;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(10, 10, 10, 0.08);
+    width: 100%;
+    max-width: 420px;
+}
+
+.labelsInformation {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: v.$blanco;
+}
+
+.inputInformation{
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid v.$gris;
+    border-radius: 4px;
+    font-size: 1.5rem;
+}
+
+.fullpage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 348px);
+    padding: 0 2rem;
+    @include m.tableta{
+        min-height: calc(100vh - 168px);
+        padding: none;
+    }
+    // On narrow/mobile screens allow content to flow and not be vertically centered
+    @media (max-width: 600px) {
+        align-items: flex-start;
+        padding-top: 1rem;
+        min-height: auto;
+    }
+}
+
+.principalbackground{
+    background-color: v.$primario;
+}
+
+.muted{
+    color: v.$blanco;
+    a{
+        color: v.$secundario;
+        &:hover{
+            color: lighten(v.$secundario, $amount: 10%);
+        }
+    }
+}
+
+.containerModal{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ffffffc7;
+    z-index:9999;
+    padding:20px;
+}

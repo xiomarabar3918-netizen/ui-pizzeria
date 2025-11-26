@@ -1,0 +1,19 @@
+@use 'variables' as v;
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, #app-root, app-root, body {
+    min-height: 100%;
+    /* allow the root to scroll; some pages don't include a dedicated main element */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    margin: 0;
+    font-family: v.$fuentePrincipal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

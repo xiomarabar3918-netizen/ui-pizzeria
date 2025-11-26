@@ -1,0 +1,22 @@
+@use './variables' as v;
+@use './mixins' as m;
+
+.buttoForm{
+    @include m.boton(v.$secundario, v.$blanco)
+}
+.buttoDeleted{
+    @include m.boton(v.$danger, v.$blanco)
+}
+.buttosucces{
+    @include m.boton(v.$succes, v.$blanco)
+}
+.containerFormsButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    span{
+        font-size: 2rem;
+    }
+}
+
