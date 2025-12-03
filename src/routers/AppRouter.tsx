@@ -1,32 +1,39 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { App } from '../ui/App'
-import {CollaboratorCreateUser, CollaboratorLogin, CollaboratorTask, OrdersDone, UserOrder} from '../ui/pages'
+import {
+	CollaboratorCreateUser,
+	CollaboratorLogin,
+	CollaboratorTask,
+	Home,
+	OrdersDone,
+	UserOrder,
+} from '../ui/pages'
 
 export const router = createBrowserRouter([
 	{
+		path: '/',
+		element: <Home />,
+	},
+	{
 		path: '/ordenLista',
-		element: <OrdersDone/> 
+		element: <OrdersDone />,
 	},
 	{
 		path: '/userDone',
 		element: <UserOrder />,
 	},
 	{
+		path: '/collaborator/login',
+		element: <CollaboratorLogin />,
+	},
+	{
+		path: '/collaborator/create-user',
+		element: <CollaboratorCreateUser />,
+	},
+	{
 		path: '/collaborator',
 		element: <App />,
 		children: [
-			{
-				index: true,
-				element: <CollaboratorLogin />,
-			},
-			{
-				path: 'login',
-				element: <CollaboratorLogin />,
-			},
-			{
-				path: 'create-user',
-				element: <CollaboratorCreateUser />,
-			},
 			{
 				path: 'tasks',
 				element: <CollaboratorTask />,

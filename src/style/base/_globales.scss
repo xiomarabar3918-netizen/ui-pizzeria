@@ -17,9 +17,7 @@ html {
 main{
     padding: 0.5rem 0.5rem;
     -webkit-overflow-scrolling: touch;
-    /* make main the scrollable area; account for fixed header/footer */
-    max-height: calc(100vh - var(--header-height) - var(--footer-height));
-    overflow-y: auto;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
     @include m.tableta{
         padding: 2rem 10rem;
         /* larger screens likely have smaller header/footer */
@@ -29,13 +27,11 @@ main{
 
 body {
     background-color: v.$grisClaro;
-    font-family: v.$fuentePrincipal;
+    font-family: v.$fuenteSecundaria;
     font-size: 1.6rem;
-    padding-top: 140px;
-    @include m.tableta{
-        padding-top: 64px;
-        Padding-bottom: 64px;
-    }
+}
+h1,h2,h3,h4{
+    font-family: v.$fuentePrincipal;
 }
 
 p {

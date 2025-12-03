@@ -1,0 +1,13 @@
+@use '/src/style/base/variables' as v;
+
+.footer{
+    background-color: v.$primario;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    &_copy{
+        text-align: center;
+        color: v.$blanco;
+        font-size: 2rem;
+    }
+}
