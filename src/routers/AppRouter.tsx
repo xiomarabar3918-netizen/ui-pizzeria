@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { App } from '../ui/App'
 import {
+	CollaboratorCreateProduct,
 	CollaboratorCreateUser,
 	CollaboratorLogin,
 	CollaboratorTask,
@@ -35,8 +36,16 @@ export const router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{
+				index:true,
+				element: <CollaboratorTask />,
+			},
+			{
 				path: 'tasks',
 				element: <CollaboratorTask />,
+			},
+			{
+				path: 'create-product',
+				element: <CollaboratorCreateProduct />,
 			},
 		],
 	},

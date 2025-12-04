@@ -1,0 +1,96 @@
+@use '/src/style/base/variables' as v;
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+
+    &_header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.5rem 2.5rem 1rem;
+        background-color: v.$primario;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    &_top {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &_img {
+        width: clamp(70px, 10vw, 120px);
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid v.$secundario;
+    }
+
+    &_boddy {
+        text-align: center;
+        flex: 1;
+
+        .secondTittle {
+            font-size: clamp(3rem, 4vw, 3.5rem);
+            margin: 0;
+            color: v.$blanco;
+        }
+
+        .principalTittle {
+            font-size: clamp(2.8rem, 5vw, 4rem);
+            margin: 0.25rem 0 0;
+            color: v.$secundario;
+        }
+    }
+
+    &_exit {
+        justify-self: end;
+        padding: 0.65rem 3.5rem;
+        border-radius: 999px;
+        background: v.$blanco;
+        color: v.$negro;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s ease, color 0.2s ease;
+        font-size: 2rem;
+
+        &:hover {
+            background: v.$terciario;
+            color: v.$blanco;
+        }
+    }
+
+    &_secondary {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 0.75rem;
+        background: v.$secundario;
+        padding: 1.5rem;
+    }
+
+    &_secondary-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 0.65rem 1.5rem;
+        background: v.$blanco;
+        color: v.$primario;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+
+        &--active {
+            background: v.$terciario;
+            color: v.$blanco;
+        }
+        &:hover{
+            background: lighten($color: v.$terciario, $amount: 30);
+            color: v.$blanco;
+        }
+    }
+}

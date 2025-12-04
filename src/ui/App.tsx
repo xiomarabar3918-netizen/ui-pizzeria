@@ -5,7 +5,7 @@ export function App() {
     return (
         <>
             <Navbar />
-            <section className="app-shell">
+            <section className="app-shell withFixedHeader">
                 <Outlet />
             </section>
             <Footer />

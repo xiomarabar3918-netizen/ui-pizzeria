@@ -1,0 +1,99 @@
+@use '/src/style/base/variables' as v;
+
+.collaboratorLogin {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    background: v.$background;
+
+    &_card {
+        width: min(400px, 100%);
+        background: v.$primario;
+        border-radius: 20px;
+        padding: 3rem 2.5rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    &_logo {
+        width: 19rem;
+        height: 19rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 1rem;
+        border: 4px solid v.$secundario;
+    }
+
+    &_tittle{
+        color: v.$secundario;
+        font-size: 4rem;
+    }
+
+    &_hint {
+        margin: 0 auto 2rem;
+        color: v.$gris;
+        font-size: 1.6rem;
+    }
+
+    &_form {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 1rem;
+
+        label {
+            font-weight: 600;
+            color: v.$blanco;
+        }
+
+        input {
+            border: 1px solid v.$grisClaro;
+            border-radius: 12px;
+            padding: 0.85rem 1.2rem;
+            font-size: 1.6rem;
+            font-family: inherit;
+
+            &::placeholder {
+                color: rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+
+    &_submit {
+        margin-top: 2.5rem;
+        width: 100%;
+        border: none;
+        border-radius: 999px;
+        padding: 0.95rem 1.5rem;
+        background: v.$terciario;
+        color: v.$blanco;
+        font-weight: 600;
+        font-size: rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: v.$blanco;
+            color: v.$negro;
+        }
+    }
+
+    &_register {
+        margin-top: 1.5rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-around;
+        color: v.$blanco;
+        a {
+            color: v.$secundario;
+            font-weight: 600;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
