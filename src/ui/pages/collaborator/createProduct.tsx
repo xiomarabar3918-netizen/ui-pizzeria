@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import Swal from 'sweetalert2'
 
 export default function CollaboratorCreateProduct() {
   const fileInputRef = useRef<HTMLInputElement | null>(null)
@@ -54,7 +55,7 @@ export default function CollaboratorCreateProduct() {
 
         {fileName && <p className="collaboratorCreateProduct_filename">{fileName}</p>}
 
-        <form className="collaboratorCreateProduct_form">
+        <form className="collaboratorCreateProduct_form" onSubmit={e => e.preventDefault()}>
           <label>
             Nombre del producto
             <input type="text" placeholder="Ingresa el nombre del producto." />
@@ -70,7 +71,18 @@ export default function CollaboratorCreateProduct() {
             <textarea placeholder="Ingresa la descripción o los ingredientes del producto." />
           </label>
 
-          <button type="button" className="collaboratorCreateProduct_submit">
+          <button
+            type="button"
+            className="collaboratorCreateProduct_submit"
+            onClick={() => {
+              Swal.fire({
+                title: 'Producto creado',
+                text: 'El producto se registró correctamente.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+              })
+            }}
+          >
             Crear producto
           </button>
         </form>
