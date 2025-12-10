@@ -1,6 +1,5 @@
 @use '/src/style/base/variables' as v;
 
-
 .homeSelection {
 	min-height: calc(100vh - 5.3rem);
 	display: flex;
@@ -11,36 +10,73 @@
 	text-align: center;
 	padding: 2rem;
 
-	&_tittle{
-		font-size: 4rem;
-		margin-bottom: 0rem;
+	// Animación suave de entrada
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeUp 0.8s ease forwards;
+
+	// Título
+	&_tittle {
+		font-size: clamp(3rem, 6vw, 4rem);
+		margin-bottom: 0.5rem;
+		color: v.$primario;
+		font-weight: 700;
+		letter-spacing: 1px;
 	}
 
-	&_text{
-		font-size: 2.5rem;
+	// Texto descriptivo
+	&_text {
+		font-size: clamp(1.8rem, 4vw, 2.5rem);
 		margin-top: 0rem;
+		color: v.$terciario;
+		max-width: 800px;
 	}
 
+	// Contenedor de acciones
 	&_actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1rem;
 		justify-content: center;
-        flex-direction: column;
+		flex-direction: column;
+		margin-top: 1.5rem;
+
+		@media (min-width: v.$tablet) {
+			flex-direction: row;
+		}
 	}
 
+	// Botón principal
 	&_btn {
-		padding: 0.85rem 1.5rem;
+		padding: 1rem 2rem;
 		border-radius: 50px;
 		border: none;
 		background: v.$primario;
 		color: v.$blanco;
 		text-decoration: none;
 		font-weight: 600;
-		transition: background 0.2s ease;
+		font-size: 1.8rem;
+		transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 
 		&:hover {
 			background: darken(v.$primario, 6%);
+			transform: translateY(-3px);
+			box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+		}
+
+		&:active {
+			transform: translateY(0);
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+		}
+	}
+
+	// Animaciones
+	@keyframes fadeUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 }
