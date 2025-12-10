@@ -6,15 +6,63 @@ $fuenteSecundaria: 'Playfair Display', serif;
 $telefono: 480px;
 $tablet: 768px;
 $desktop: 1024px;
+$xl: 1440px;
 
 // Colores
 $primario: #8B4513;
 $secundario: #D4AF37;
 $terciario: #2F4F4F;
-$negro: #1A1A1A; 
+$negro: #1A1A1A;
 $blanco: #F5F5F5;
-$background:#FDF5E6;
+$background: #FDF5E6;
 $gris: #2D2D2D;
 $grisClaro: #dbdbdb;
-$succes:#16A34A;
-$danger:#DC2626
+$succes: #16A34A;
+$danger: #DC2626;
+
+// ======================================
+// PALETA COMPLEMENTARIA (OPCIONAL)
+// ======================================
+$info: #2563EB;
+$warning: #F59E0B;
+$muted: #6B7280;
+$border-color: #E5E7EB;
+
+// ======================================
+// ESPACIADOS
+// ======================================
+$espacio-xs: 0.25rem;
+$espacio-sm: 0.5rem;
+$espacio-md: 1rem;
+$espacio-lg: 1.5rem;
+$espacio-xl: 2rem;
+
+// ======================================
+// RADIOS DE BORDE
+// ======================================
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-full: 999px;
+
+// ======================================
+// SOMBRAS
+// ======================================
+$sombra-sm: 0 1px 2px rgba(0,0,0,0.05);
+$sombra-md: 0 4px 6px rgba(0,0,0,0.1);
+$sombra-lg: 0 10px 20px rgba(0,0,0,0.15);
+
+// ======================================
+// NIVELES DE Z-INDEX
+// ======================================
+$z-back: -1;
+$z-normal: 1;
+$z-dropdown: 100;
+$z-modal: 500;
+$z-loader: 999;
+
+// ======================================
+// GRADIENTES (OPCIONAL)
+// ======================================
+$gradient-gold: linear-gradient(90deg, #D4AF37, #F5D76E);
+$gradient-dark: linear-gradient(180deg, #1A1A1A, #2F4F4F);
