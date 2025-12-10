@@ -1,13 +1,47 @@
 @use '/src/style/base/variables' as v;
 
-.footer{
+.footer {
     background-color: v.$primario;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 1.5rem;
-    &_copy{
+    border-top: 2px solid v.$secundario;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+
+    // Transición suave cuando se hace scroll
+    transition: background-color 0.25s ease, padding 0.25s ease;
+
+    // Copia del footer
+    &_copy {
         text-align: center;
         color: v.$blanco;
         font-size: 2rem;
+        letter-spacing: 1px;
+        font-weight: 600;
+        opacity: 0.95;
+
+        // Animación sutil al pasar el mouse
+        &:hover {
+            opacity: 1;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    // Responsivo
+    @media (max-width: v.$tablet) {
+        padding: 1rem;
+        
+        &_copy {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: v.$telefono) {
+        padding: 0.8rem;
+
+        &_copy {
+            font-size: 1.6rem;
+        }
     }
 }
