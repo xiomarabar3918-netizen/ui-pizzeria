@@ -8,13 +8,24 @@
     padding: 2rem 1.5rem;
     background: v.$background;
 
+    // Animación de entrada suave
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+
     &_card {
         width: min(400px, 100%);
         background: v.$primario;
         border-radius: 20px;
         padding: 3rem 2.5rem;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+        }
     }
 
     &_logo {
@@ -24,17 +35,23 @@
         object-fit: cover;
         margin: 0 auto 1rem;
         border: 4px solid v.$secundario;
+
+        // Animación suave al aparecer
+        animation: popIn 0.7s ease;
     }
 
-    &_tittle{
+    &_tittle {
         color: v.$secundario;
-        font-size: 4rem;
+        font-size: clamp(3rem, 5vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
     }
 
     &_hint {
         margin: 0 auto 2rem;
-        color: v.$gris;
+        color: v.$blanco;
         font-size: 1.6rem;
+        opacity: 0.9;
     }
 
     &_form {
@@ -53,10 +70,17 @@
             border-radius: 12px;
             padding: 0.85rem 1.2rem;
             font-size: 1.6rem;
-            font-family: inherit;
+            background-color: v.$blanco;
+            transition: border 0.2s ease, box-shadow 0.2s ease;
 
             &::placeholder {
                 color: rgba(0, 0, 0, 0.4);
+            }
+
+            &:focus {
+                border-color: v.$secundario;
+                box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+                outline: none;
             }
         }
     }
@@ -70,13 +94,18 @@
         background: v.$terciario;
         color: v.$blanco;
         font-weight: 600;
-        font-size: rem;
+        font-size: 1.8rem;
         cursor: pointer;
-        transition: background 0.2s ease;
+        transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 
         &:hover {
-            background: v.$blanco;
+            background: v.$secundario;
             color: v.$negro;
+            transform: translateY(-3px);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
     }
 
@@ -86,14 +115,35 @@
         display: flex;
         justify-content: space-around;
         color: v.$blanco;
+
         a {
             color: v.$secundario;
             font-weight: 600;
             text-decoration: none;
+            transition: opacity 0.2s ease;
 
             &:hover {
-                text-decoration: underline;
+                opacity: 0.8;
             }
+        }
+    }
+
+    // Animaciones globales de la página
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes popIn {
+        from {
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
         }
     }
 }
